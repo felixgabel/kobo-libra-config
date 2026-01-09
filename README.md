@@ -16,4 +16,4 @@ For wallpapers to work, create a `screensaver` directory inside `/Volumes/KOBOeR
 ---
 
 ### Note
-Last time I installed it, the `KoboRoot.tgz` file from NickelMenu vanished after installing, but the `NickelSeries_v5-bf2db08.zip` from NickelSeries file stayed. I just left it as is, it's working fine.
+Last time I set up my Kobo, the `KoboRoot.tgz` file from NickelMenu installation vanished after installing, but the `NickelSeries_v5-bf2db08.zip` file from the NickelSeries installaion stayed. I just left it that way, it's working fine.
