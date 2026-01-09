@@ -1,0 +1,41 @@
+# HAUPTMENÜ
+
+# Icon und Label
+experimental :menu_main_15505_icon :/mnt/onboard/.adds/nm/.icon.png
+experimental: menu_main_15505_label : Extras
+
+# Disable MenuItem "My Notebooks"
+experimental: menu_main_15505_3_enabled : 0
+# Disable MenuItem "Discover"
+experimental: menu_main_15505_4_enabled : 0
+# Enable MenuItem "Activity"
+experimental: menu_main_15505_2_enabled : 1
+
+# menu_item    : main                  : KOReader+            : cmd_spawn        :quiet       :exec /mnt/onboard/.adds/koreader/koreader.sh
+menu_item    : main                  : Neustart             : power            : reboot
+menu_item    : main                  : Ausschalten          : power            : shutdown
+menu_item    : main                  : Mit PC verbinden     : nickel_misc      : force_usb_connection
+menu_item :main :Bildschirmschoner :cmd_output :500:quiet:test -e /mnt/onboard/.kobo/screensaver_off
+    chain_failure :skip :3
+        chain_success :cmd_spawn :quiet:mv /mnt/onboard/.kobo/screensaver_off /mnt/onboard/.kobo/screensaver
+        chain_success :dbg_toast :Bildschirmschoner AN
+        chain_always :skip :-1
+    chain_failure :cmd_spawn :quiet:mv /mnt/onboard/.kobo/screensaver /mnt/onboard/.kobo/screensaver_off
+    chain_success :dbg_toast :Bildschirmschoner AUS
+# menu_item    : main                  : Sketch Pad           : nickel_extras    : sketch_pad
+# menu_item    : main                  : Solitaire            : nickel_extras    : solitaire
+# menu_item    : main                  : Word Scramble        : nickel_extras    : word_scramble
+menu_item    : main                  : Schiebepuzzle        : nickel_extras    : unblock_it
+menu_item    : main                  : Sudoku               : nickel_extras    : sudoku
+
+
+# READER
+menu_item    : reader                : Dunkelmodus          : nickel_setting   : toggle     : dark_mode
+menu_item    : reader                : Mit PC verbinden     : nickel_misc      : force_usb_connection
+menu_item :reader :Bildschirmschoner :cmd_output :500:quiet:test -e /mnt/onboard/.kobo/screensaver_off
+    chain_failure :skip :3
+        chain_success :cmd_spawn :quiet:mv /mnt/onboard/.kobo/screensaver_off /mnt/onboard/.kobo/screensaver
+        chain_success :dbg_toast :Bildschirmschoner AN
+        chain_always :skip :-1
+    chain_failure :cmd_spawn :quiet:mv /mnt/onboard/.kobo/screensaver /mnt/onboard/.kobo/screensaver_off
+    chain_success :dbg_toast :Bildschirmschoner AUS
